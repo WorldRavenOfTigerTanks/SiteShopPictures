@@ -1,0 +1,94 @@
+{% extends "main.html" %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+<title>{{page.title}}</title>
+
+
+
+
+
+
+
+
+    
+
+
+
+
+            <div id="testimonails">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>{{page.title}}</h2>
+                                <img src="{{ page.podcherk.url }}" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2">
+                            <div class="testimonails-slider">
+                                <p>{% autoescape off %}{{ page.text }}{% endautoescape %}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <form action="" id="top" method="post">{% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                    <!-- Email input -->
+                      <div class="form-outline mb-4">
+                          <input type="email" id="form1Example1" class="form-control" name="{{ form.email.name }}"/>
+                       
+                      <label class="form-label" for="form1Example1">E-mail </label>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+
+                        <div class="form-outline mb-4">
+                            <input type="text" id="form1Example2" class="form-control" name="{{ form.name.name }}"/>
+                          
+                            <label class="form-label" for="form1Example2">Ім'я</label>
+                        </div>
+                    </div>
+</div>
+
+
+<div class="row">
+  <div class="col">
+<div class="form-outline">
+  <textarea class="form-control" id="textAreaExample" rows="4" name="{{ form.mas.name }}"></textarea>
+  <label class="form-label" for="textAreaExample">Лист</label>
+</div>    
+  </div>
+</div>
+
+                    
+ 
+
+<div class="row">
+  <div class="col">
+    <button type="submit" class="btn btn-primary btn-block">Відправити</button>    
+  </div>
+</div>
+                   
+                    </form>
+
+
+
+
+{% endblock %}

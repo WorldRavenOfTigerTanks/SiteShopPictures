@@ -1,0 +1,118 @@
+{% extends "main.html" %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+<title>{{page.title}}</title>
+
+
+
+
+
+
+            <div id="products-post">
+                <div class="container">
+
+{%if not search%}
+                    <div class="row" id="Container">
+                                                <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Категорії</h2>
+                                <img src="{{ page.podcherk.url }}" alt="" >
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="container">
+                    	<div class="row">
+{% for item in category %}
+                        <div class="col-md-3 col-sm-6">
+                            <a href="\products/{{ item.id }}/">
+                            <div class="service-item">
+                                <div class="icon">
+                                    <img class="kat" src="{{item.glavnoe_photo.url}}">
+                                </div>
+                                <h4>{{item.title}}</h4>
+
+                            </div>
+                            </a>
+                        </div>
+{% endfor %}
+
+						</div>
+                    </div>
+{% endif %}
+{% if not products %}
+    
+        {% if search %}
+        <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Товарів з такою назвою немає. Спробуйте зайти пізніше</h2>
+                                <img src="{{ page.podcherk.url }}" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% endif %}
+    {% endif %}
+
+
+{% if  products %}                        
+        <div id="latest-blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading-section">
+                                <h2>Знайдені товари</h2>
+                                <img src="{{ page.podcherk.url }}" alt="" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+    {% if not products %}
+    <p class="tac">На даний момент товарів немає. Спробуйте зайти пізніше</p>
+    {% endif %}
+                        {% for item in products %}
+                        <div class="col-md-4 col-sm-6">
+                            <a href="\posts/{{ item.id }}">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    <img src="{{ item.glavnoe_photo.url }}" alt="" />
+                                </div>
+                                <div class="blog-content">
+                                    <div class="content-show">
+                                        <h4><a href="\posts/{{ item.id }}">{{ item.title }}</a></h4>
+                                        <span>Ціна: {{ item.price }} грн</span>
+                                    </div>
+<!--                                     <div class="content-hide">
+                                        <p>{% autoescape off %}{{ item.content_corotkii }}{% endautoescape %}</p>
+                                    </div> -->
+                                </div>
+                            </div>
+</a>
+                            
+                        </div>
+                        {% endfor %}
+
+
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+            
+
+{% endblock %}

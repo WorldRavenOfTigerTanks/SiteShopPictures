@@ -7,8 +7,8 @@ from cart.cart import Cart
 
 
 def order_create(request):
-    t='6105657819:AAE_DdIMVP2MWy0XM30Pvbrnx0SpLm6QAz0'
-    c='-991409265'
+    t='6105657819:AAE_DdIMVP2MMy0XM30Pvbrnx0PpLm6QAz0'
+    c='000000000'
     page = Pages.objects.get(pk=7)
     cart = Cart(request)
 
